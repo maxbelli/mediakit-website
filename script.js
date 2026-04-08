@@ -11,9 +11,12 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.05, rootMargin: '50px 0px -20px 0px' });
 
 fadeEls.forEach((el) => observer.observe(el));
+
+// Trigger hero immediately
+document.querySelector('.hero .fade-up')?.classList.add('visible');
 
 // --- Nav scroll effect ---
 const nav = document.getElementById('nav');
