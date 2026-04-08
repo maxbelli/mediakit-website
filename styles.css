@@ -721,14 +721,28 @@ img { max-width: 100%; display: block; }
 
 /* --- Animations (Scroll Reveal) --- */
 .fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: none;
 }
 
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
+@media (prefers-reduced-motion: no-preference) {
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Fallback: show everything after 2s if JS fails */
+@keyframes forceShow {
+  to { opacity: 1; transform: none; }
+}
+.fade-up {
+  animation: forceShow 0s 2s forwards;
 }
 
 /* --- Responsive --- */
