@@ -83,6 +83,12 @@ img { max-width: 100%; display: block; }
   letter-spacing: -0.02em;
 }
 
+.nav-divider, .footer-divider {
+  color: var(--gray-600);
+  font-weight: 300;
+  margin: 0 2px;
+}
+
 .nav-links {
   display: flex;
   gap: 32px;
